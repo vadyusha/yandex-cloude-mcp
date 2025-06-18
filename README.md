@@ -22,16 +22,23 @@
 После создания и настройки этого сервера, Claude сможет подключиться к вашим bucket в Yandex Cloud и помочь с анализом данных, управлением файлами и другими задачами!
 
 Шаг 1: Создание проекта
+
 Выполните команды в терминале:
+
 bashmkdir yandex-cloud-mcp
+
 cd yandex-cloud-mcp
+
 npm init -y
+
+
 Шаг 2: Установка зависимостей
 bash# Основные зависимости
 npm install @modelcontextprotocol/sdk @aws-sdk/client-s3 dotenv
 
 # Dev зависимости для TypeScript
 npm install -D typescript @types/node ts-node nodemon
+
 Шаг 3: Создание структуры папок
 bashmkdir src
 Шаг 4: Конфигурационные файлы
