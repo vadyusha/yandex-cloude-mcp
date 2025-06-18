@@ -24,35 +24,35 @@
 Шаг 1: Создание проекта
 
 Выполните команды в терминале:
-
+``` 
 bashmkdir yandex-cloud-mcp
 
 cd yandex-cloud-mcp
 
 npm init -y
-
+``` 
 
 Шаг 2: Установка зависимостей
 
-bash# Основные зависимости
-
+Основные зависимости
+``` 
 npm install @modelcontextprotocol/sdk @aws-sdk/client-s3 dotenv
 
 Dev зависимости для TypeScript
 
 npm install -D typescript @types/node ts-node nodemon
-
+``` 
 
 Шаг 3: Создание структуры папок
-
+``` 
 bashmkdir src
-
+``` 
 
 Шаг 4: Конфигурационные файлы
 
 Создайте файл tsconfig.json в корне проекта:
-
-json{
+``` 
+{
   "compilerOptions": {
     "target": "ES2020",
     "module": "commonjs",
@@ -67,10 +67,10 @@ json{
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
-
+``` 
 Обновите package.json, добавив scripts:
-
-json{
+``` 
+{
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
@@ -78,12 +78,14 @@ json{
     "watch": "nodemon --exec ts-node src/index.ts"
   }
 }
-
+``` 
 
 Шаг 5: Файл переменных окружения
 Создайте файл .env в корне проекта:
+``` 
 bashYANDEX_ACCESS_KEY_ID=your_yandex_access_key_id_here
 YANDEX_SECRET_ACCESS_KEY=your_yandex_secret_access_key_here
+``` 
 ⚠️ Пока оставьте placeholder значения - мы заполним их после получения ключей
 Шаг 6: Основной код
 Создайте файл src/index.ts и скопируйте туда весь код из артефакта (он так же называется index.ts) выше (начиная с #!/usr/bin/env node).
@@ -118,9 +120,10 @@ YANDEX_SECRET_ACCESS_KEY=your_yandex_secret_access_key_here
 
 Шаг 8: Обновление .env файла
 Откройте файл .env и замените placeholder значения на ваши ключи:
+``` 
 bashYANDEX_ACCESS_KEY_ID=YCAJEваш_access_key_id_здесь
 YANDEX_SECRET_ACCESS_KEY=YCваш_очень_длинный_secret_key_здесь
-
+``` 
 Шаг 9: Тестирование
 Попробуйте запустить сервер:
 bashnpm run build
@@ -131,16 +134,19 @@ Yandex Cloud MCP сервер запущен
 Шаг 10: Подключение к Claude Desktop
 1. Найдите файл конфигурации Claude Desktop
 Файл конфигурации находится в разных местах в зависимости от ОС:
+``` 
 Windows:
 %APPDATA%\Claude\claude_desktop_config.json
 macOS:
 ~/Library/Application Support/Claude/claude_desktop_config.json
 Linux:
 ~/.config/Claude/claude_desktop_config.json
-2. Создайте или отредактируйте конфигурацию
+``` 
+3. Создайте или отредактируйте конфигурацию
 Если файл не существует - создайте его. Если существует - добавьте ваш сервер.
 Новый файл конфигурации:
-json{
+``` 
+{
   "mcpServers": {
     "yandex-cloud": {
       "command": "node",
@@ -152,8 +158,10 @@ json{
     }
   }
 }
+``` 
 Если файл уже существует, добавьте в секцию mcpServers:
-json{
+``` 
+{
   "mcpServers": {
     "существующие-серверы": { ... },
     "yandex-cloud": {
@@ -166,15 +174,18 @@ json{
     }
   }
 }
-3. Узнайте полный путь к проекту
+``` 
+5. Узнайте полный путь к проекту
 В терминале, находясь в папке yandex-cloud-mcp:
+``` 
 Windows:
 cmdecho %cd%\dist\index.js
 macOS/Linux:
 bashecho "$(pwd)/dist/index.js"
-4. Перезапустите Claude Desktop
+``` 
+7. Перезапустите Claude Desktop
 Полностью закройте и снова откройте приложение Claude Desktop.
-5. Проверьте подключение
+8. Проверьте подключение
 После перезапуска попробуйте написать в чате:
 Можешь показать мои bucket в Yandex Cloud?
 Если все настроено правильно, Claude сможет использовать инструменты для работы с вашим Yandex Cloud!
@@ -190,8 +201,8 @@ bashecho "$(pwd)/dist/index.js"
 Создайте новый файл в корневой папке yandex-cloud-mcp (там же где package.json)
 Назовите файл tsconfig.json (важно: именно это имя, с расширением .json)
 Скопируйте и вставьте этот код:
-
-json{
+``` 
+{
   "compilerOptions": {
     "target": "ES2020",
     "module": "commonjs",
@@ -206,32 +217,33 @@ json{
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
-
+``` 
 Сохраните файл
 
 Обновление package.json
 
 Откройте файл package.json (он уже существует после npm init -y)
 Найдите секцию "scripts" (она может выглядеть примерно так):
-
+``` 
 json"scripts": {
   "test": "echo \"Error: no test specified\" && exit 1"
 }
-
+``` 
 Замените её на:
-
-json"scripts": {
+``` 
+"scripts": {
   "build": "tsc",
   "start": "node dist/index.js",
   "dev": "ts-node src/index.ts",
   "watch": "nodemon --exec ts-node src/index.ts",
   "test": "echo \"Error: no test specified\" && exit 1"
 }
-
+``` 
 Сохраните файл
 
 Альтернативный способ (через терминал)
 Если предпочитаете командную строку:
+``` 
 bash# Создание tsconfig.json
 cat > tsconfig.json << 'EOF'
 {
@@ -250,12 +262,15 @@ cat > tsconfig.json << 'EOF'
   "exclude": ["node_modules", "dist"]
 }
 EOF
+``` 
 Проверка
 После выполнения у вас должна быть такая структура:
+``` 
 yandex-cloud-mcp/
 ├── node_modules/
 ├── src/
 ├── package.json
 ├── package-lock.json
 └── tsconfig.json
+``` 
 
