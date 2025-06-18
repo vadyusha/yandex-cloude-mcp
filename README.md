@@ -24,7 +24,7 @@
 
 Выполните команды в терминале:
 ``` 
-bashmkdir yandex-cloud-mcp
+mkdir yandex-cloud-mcp
 
 cd yandex-cloud-mcp
 
@@ -44,7 +44,7 @@ npm install -D typescript @types/node ts-node nodemon
 
 Шаг 3: Создание структуры папок
 ``` 
-bashmkdir src
+mkdir src
 ``` 
 
 Шаг 4: Конфигурационные файлы
@@ -82,7 +82,7 @@ bashmkdir src
 Шаг 5: Файл переменных окружения
 Создайте файл .env в корне проекта:
 ``` 
-bashYANDEX_ACCESS_KEY_ID=your_yandex_access_key_id_here
+YANDEX_ACCESS_KEY_ID=your_yandex_access_key_id_here
 YANDEX_SECRET_ACCESS_KEY=your_yandex_secret_access_key_here
 ``` 
 ⚠️ Пока оставьте placeholder значения - мы заполним их после получения ключей
@@ -120,7 +120,7 @@ YANDEX_SECRET_ACCESS_KEY=your_yandex_secret_access_key_here
 Шаг 8: Обновление .env файла
 Откройте файл .env и замените placeholder значения на ваши ключи:
 ``` 
-bashYANDEX_ACCESS_KEY_ID=YCAJEваш_access_key_id_здесь
+YANDEX_ACCESS_KEY_ID=YCAJEваш_access_key_id_здесь
 YANDEX_SECRET_ACCESS_KEY=YCваш_очень_длинный_secret_key_здесь
 ``` 
 Шаг 9: Тестирование
@@ -224,7 +224,7 @@ bashecho "$(pwd)/dist/index.js"
 Откройте файл package.json (он уже существует после npm init -y)
 Найдите секцию "scripts" (она может выглядеть примерно так):
 ``` 
-json"scripts": {
+"scripts": {
   "test": "echo \"Error: no test specified\" && exit 1"
 }
 ``` 
@@ -242,8 +242,9 @@ json"scripts": {
 
 Альтернативный способ (через терминал)
 Если предпочитаете командную строку:
+
+Создание tsconfig.json
 ``` 
-bash# Создание tsconfig.json
 cat > tsconfig.json << 'EOF'
 {
   "compilerOptions": {
