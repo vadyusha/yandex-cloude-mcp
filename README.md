@@ -33,16 +33,25 @@ npm init -y
 
 
 Шаг 2: Установка зависимостей
+
 bash# Основные зависимости
+
 npm install @modelcontextprotocol/sdk @aws-sdk/client-s3 dotenv
 
-# Dev зависимости для TypeScript
+Dev зависимости для TypeScript
+
 npm install -D typescript @types/node ts-node nodemon
 
+
 Шаг 3: Создание структуры папок
+
 bashmkdir src
+
+
 Шаг 4: Конфигурационные файлы
+
 Создайте файл tsconfig.json в корне проекта:
+
 json{
   "compilerOptions": {
     "target": "ES2020",
@@ -58,7 +67,9 @@ json{
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
+
 Обновите package.json, добавив scripts:
+
 json{
   "scripts": {
     "build": "tsc",
@@ -67,6 +78,8 @@ json{
     "watch": "nodemon --exec ts-node src/index.ts"
   }
 }
+
+
 Шаг 5: Файл переменных окружения
 Создайте файл .env в корне проекта:
 bashYANDEX_ACCESS_KEY_ID=your_yandex_access_key_id_here
